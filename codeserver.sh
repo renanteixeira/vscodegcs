@@ -4,7 +4,7 @@
 #Description	: Run the latest version of Visual Studio Code on Google Cloud Shell
 #Author       	: Renan Teixeira
 #Email         	: contato@renanteixeira.com.br
-#Version        : 0.1 - 13/11/2019 - 22:40
+#Version        : 0.2 - 24/12/2019 - 12:00
 ###################################################################
 
 echo 'Run Visual Studio Code'
@@ -25,7 +25,7 @@ downloadCodeServer(){
     rm -f $VERSION.tar.gz
     
     cd $codeRoot/$VERSION
-    ./code-server --no-auth --port 8080
+    ./code-server --port 8080
 }
 
 runCodeServer(){
@@ -34,7 +34,7 @@ runCodeServer(){
         echo "Running..."
     
         cd $codeRoot/$VERSION
-        ./code-server --no-auth --port 8080
+        ./code-server --port 8080
     else
         downloadCodeServer
     fi
