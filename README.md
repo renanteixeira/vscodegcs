@@ -36,12 +36,13 @@ If you are using the local machine, simply access the Localhost address.
 ```bash
 http://localhost:8080
 ```
-
 In [Google Cloud Shell](https://cloud.google.com/shell/) click the Web Preview icon and select Preview on port 8080.
 
-I recommend using [Boost Mode in Cloud Shell](https://cloud.google.com/shell/docs/how-cloud-shell-works#boost_mode)
-
 ![GCS Web Preview](https://miro.medium.com/max/636/1*tcyI0xwhSF7Wn1upszdhDA.png)
+
+I recommend using [Boost Mode in Cloud Shell](https://cloud.google.com/shell/docs/how-cloud-shell-works#boost_mode) before running
+
+![Boost Mode](https://miro.medium.com/max/2574/1*D8J4okWRgFRnxo7MhbHGPg.png)
 
 ### That’s it, now you have an IDE running in your browser!
 ![VS Code Online](https://miro.medium.com/max/1996/1*BVCoNecwFAR7vcmaJ9a2gA.png)
