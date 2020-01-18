@@ -18,7 +18,6 @@ codeRoot="$HOME/codeserver"
 downloadCodeServer(){
     cd $codeRoot
     echo "Code Server Version $VERSION not found, downloading...."
-    echo https://github.com/cdr/code-server/releases/download/$VERSION/code-server$NAME-linux-x86_64.tar.gz
     wget -c https://github.com/cdr/code-server/releases/download/$VERSION/code-server$NAME-linux-x86_64.tar.gz -O $VERSION.tar.gz
 
     echo "Download completed, unzipping file..."
