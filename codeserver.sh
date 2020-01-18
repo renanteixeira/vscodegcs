@@ -11,12 +11,15 @@ echo 'Run Visual Studio Code'
 
 export VERSION=`curl -s https://api.github.com/repos/cdr/code-server/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 
+export NAME=`curl -s https://api.github.com/repos/cdr/code-server/releases/latest |jq .name -r`
+
 codeRoot="$HOME/codeserver"
 
 downloadCodeServer(){
     cd $codeRoot
     echo "Code Server Version $VERSION not found, downloading...."
-    wget -c https://github.com/cdr/code-server/releases/download/$VERSION/code-server$VERSION-linux-x86_64.tar.gz -O $VERSION.tar.gz
+    echo https://github.com/cdr/code-server/releases/download/$VERSION/code-server$NAME-linux-x86_64.tar.gz
+    wget -c https://github.com/cdr/code-server/releases/download/$VERSION/code-server$NAME-linux-x86_64.tar.gz -O $VERSION.tar.gz
 
     echo "Download completed, unzipping file..."
     mkdir $VERSION && tar xvzf $VERSION.tar.gz -C $VERSION --strip-components 1
