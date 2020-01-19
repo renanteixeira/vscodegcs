@@ -19,7 +19,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/renanteixeira/vscodegcs/ma
 
 ### via wget
 ```bash
-sh -c "$(wget https://raw.githubusercontent.com/renanteixeira/vscodegcs/master/codeserver.shh -O -)"
+sh -c "$(wget https://raw.githubusercontent.com/renanteixeira/vscodegcs/master/codeserver.sh -O -)"
 ```
 
 ## After running
