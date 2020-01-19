@@ -4,10 +4,27 @@
 #Description	: Run the latest version of Visual Studio Code on Google Cloud Shell
 #Author       	: Renan Teixeira
 #Email         	: contato@renanteixeira.com.br
-#Version        : 0.2 - 24/12/2019 - 12:00
+#Version        : 0.4 - 19/01/2020 - 12:40
 ###################################################################
 
 echo 'Run Visual Studio Code'
+
+if dpkg-query -s jq 1>/dev/null 2>&1; then
+    echo
+else
+    echo "Package JQ not found!"
+    echo
+    echo "[1] Install JQ package and run script"
+    echo "[2] Exit script"
+    echo
+    echo -n "Chose an option "
+    read option
+    case $option in
+        1) sudo apt-get install jq -y ;;
+        2) exit ;;
+        *) exit ;;
+    esac
+fi
 
 export VERSION=`curl -s https://api.github.com/repos/cdr/code-server/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 
@@ -26,6 +43,7 @@ downloadCodeServer(){
     echo "Unpacking completed..."
     rm -f $VERSION.tar.gz
     
+    clear
     cd $codeRoot/$VERSION
     ./code-server --port 8080
 }
@@ -43,8 +61,10 @@ runCodeServer(){
 }
 
 if [ ! -d "$codeRoot" ]; then
+    clear
     mkdir $codeRoot
     downloadCodeServer
 else
+    clear
     runCodeServer
 fi

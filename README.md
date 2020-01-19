@@ -8,6 +8,10 @@ I saw this Idea in a [Christiaan Hees](https://medium.com/google-cloud/how-to-ru
 
 This script runs the latest version of [code-server (VS Code)](https://github.com/cdr/code-server) with just one command.
 
+This script needs the following packages:
+
+- [jq](https://stedolan.github.io/jq/)
+
 ### via curl
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/renanteixeira/vscodegcs/master/codeserver.sh)"
