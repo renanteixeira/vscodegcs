@@ -258,12 +258,23 @@ newConfigFile(){
 	NEWPWD=$(randomString 15)
 	case $optionAuth in
 		1) echo "auth: password" >> $CONFIG_FILE && echo "password:" $NEWPWD >> $CONFIG_FILE;;
-		2) echo "Enter the custom password:" && read -s authPass && echo "auth: password" >> $CONFIG_FILE && echo "password:" $authPass >> $CONFIG_FILE;;
+		2) echo "Enter the custom password:" && customPasswd;;
 		3) echo "auth: none" >> $CONFIG_FILE;;
 		*) newConfigFile ;;
 	esac
 
 	execCodeServer
+}
+
+customPasswd(){
+	read -s authPass
+	if [ -z "${authPass}" ];then
+		echo "Password is required!"
+		customPasswd
+	else
+		echo "auth: password" >> $CONFIG_FILE
+		echo "password:" $authPass >> $CONFIG_FILE
+	fi
 }
 
 execCodeServer(){
