@@ -42,7 +42,7 @@ main() {
 
 	if [ ! -d "$CODE_PATH" ]; then
 		mkdir $CODE_PATH
-		if [ -f $CODE_FILE ]; then
+		if [ ! -f $CODE_FILE ]; then
 			downloadCodeServer
 		else
 			runCodeServer
