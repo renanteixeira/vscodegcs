@@ -257,8 +257,8 @@ newConfigFile(){
 
 	NEWPWD=$(randomString 15)
 	case $optionAuth in
-		1) echo -e "auth: password\npassword: "$NEWPWD >> $CONFIG_FILE;;
-		2) echo "Enter the custom password:" && read -s authPass && echo -e "auth: password\npassword:" $authPass >> $CONFIG_FILE;;
+		1) echo "auth: password" >> $CONFIG_FILE && echo "password:" $NEWPWD >> $CONFIG_FILE;;
+		2) echo "Enter the custom password:" && read -s authPass && echo "auth: password" >> $CONFIG_FILE && echo "password:" $authPass >> $CONFIG_FILE;;
 		3) echo "auth: none" >> $CONFIG_FILE;;
 		*) newConfigFile ;;
 	esac
