@@ -270,7 +270,11 @@ execCodeServer(){
 	clear
 
 	printf "\n${GREEN}"
-	cat $CONFIG_FILE | grep password:
+	if grep -q "password:" $CONFIG_FILE; then
+		cat $CONFIG_FILE | grep password:
+	else
+		echo "No password"
+	fi
 	printf "${END}\n"
 	$CODE_FILE
 }
