@@ -166,11 +166,11 @@ cath << EOF
 EOF
 }
 
-rand-str() {
+randomString() {
     # Return random alpha-numeric string of given LENGTH
     #
-    # Usage: VALUE=$(rand-str $LENGTH)
-    #    or: VALUE=$(rand-str)
+    # Usage: VALUE=$(randomString $LENGTH)
+    #    or: VALUE=$(randomString)
 
     local DEFAULT_LENGTH=64
     local LENGTH=${1:-$DEFAULT_LENGTH}
@@ -255,7 +255,7 @@ newConfigFile(){
 	echo -n "Chose an option: "
 	read optionAuth
 
-	NEWPWD=$(rand-str 15)
+	NEWPWD=$(randomString 15)
 	case $optionAuth in
 		1) echo -e "auth: password\npassword: "$NEWPWD >> $CONFIG_FILE;;
 		2) echo "Enter the custom password:" && read -s authPass && echo -e "auth: password\npassword:" $authPass >> $CONFIG_FILE;;
