@@ -42,7 +42,7 @@ main() {
 
 	if [ ! -d "$CODE_PATH" ]; then
 		mkdir $CODE_PATH
-		if [[ -f $CODE_FILE ]]; then
+		if [ -f $CODE_FILE ]; then
 			downloadCodeServer
 		else
 			runCodeServer
@@ -144,7 +144,7 @@ untarCodeServer(){
 }
 
 runCodeServer(){
-    if [[ -f $CODE_FILE ]]; then
+    if [ -f $CODE_FILE ]; then
     	printf "${GREEN}"
         printf "Code Server Version ${BLUE}$VERSION${END} ${GREEN}exists\n"
         echo "Running..."
@@ -182,13 +182,13 @@ randomString() {
 configFile(){
 	aboutConfigFile
 
-	if [[ ! -f $CONFIG_FILE ]]; then
+	if [ ! -f $CONFIG_FILE ]; then
 		printf "${RED}"
 		echo "Configuration file does not exist, let's create!"
 		printf "${END}"
 
 		newConfigFile
-	elif [[ ! -s $CONFIG_FILE ]]; then
+	elif [ ! -s $CONFIG_FILE ]; then
 		printf "${RED}"
 		echo "Configuration file is empty!"
 		printf "${END}"
