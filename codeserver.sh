@@ -18,7 +18,7 @@ YELLOW="\e[33m"
 
 echo_latest_version() {
   version="$(curl -fsSLI -o /dev/null -w "%{url_effective}" https://github.com/cdr/code-server/releases/latest)"
-  version="${version#https://github.com/cdr/code-server/releases/tag/}"
+  version="${version#https://github.com/coder/code-server/releases/tag/}"
   version="${version#v}"
   echo "$version"
 }
